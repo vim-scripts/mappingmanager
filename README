@@ -1,0 +1,37 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3768
+
+DEMO
+=====
+actions speak louder than words, so check out this demo:
+
+http://www.playterm.org/r/vim-mappingmanager-plugin-1318246417?vim=1
+
+(
+
+PROBLEM
+=======
+First there was a happy vim-user, but after some vim plugins, 
+lots of tricks'n'commands: the vim-user begins to suffer from braindamage.
+Keyboardshortcuts are easier to remember, but in vim also its very
+easy to get a 'almost-all-my-mappings-are-taken' syndrome.
+
+SOLUTION
+========
+switching of keyboardmappings..you can have endless mappings now.
+Call it keyboardshortcutsmappings or presets if you will.
+
+
+USAGE 
+======
+- use ,m to toggle a mappingmanager-panel which gives LOT of info
+- use ,, to cycle thru mappings (remembering this shortcut is enough, rest is self-explanatory)
+- [optional] use ,. to view the current mapping
+- [optional] use ,/ to select a mapping
+- [optional] use ,m change output mode between 'dialog' or 'console'
+- [optional] use ,F1 select mapping #1
+- [optional] use ,F2 select mapping #2
+- ..and so on
+
+Author : Leon van Kammen (Coder Of Salvation/leon.vankammen.eu) 
+Author : Tim Gerritsen (Mannetje Development/www.mannetje.org) 
+

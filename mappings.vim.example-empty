@@ -1,0 +1,72 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mappingmanager: example mappings.vim
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mapping menu
+"
+let g:map_info  = []
+let g:map_info += ["mapping 1",              "this is the default mapping"]
+let g:map_info += ["F1 example1 echo",        "echos what you pressed in the console"]
+let g:map_info += ["F2 example2 dialog",      "echos what you pressed in a dialog"]
+let g:map_info += ["F3 not set",             "please modify mappings.vim"]
+let g:map_info += ["F4 not set",             "please modify mappings.vim"]
+let g:map_info += ["F5 not set",             "please modify mappings.vim"]
+let g:map_info += ["F6 not set",             "please modify mappings.vim"]
+let g:map_info += ["F7 not set",             "please modify mappings.vim"]
+let g:map_info += ["F8 not set",             "please modify mappings.vim"]
+let g:map_info += ["F9 not set",             "please modify mappings.vim"]
+let g:map_info += ["F10 not set",            "please modify mappings.vim"]
+let g:map_info += ["F11 not set",            "please modify mappings.vim"]
+let g:map_info += ["F12 not set",            "please modify mappings.vim"]
+let g:map_info += ["mapping 2",              "this is another mapping"]
+let g:map_info += ["F1 example2 echo",        "echos what you pressed in the console"]
+let g:map_info += ["F2 example3 dialog",      "echos what you pressed in a dialog"]
+let g:map_info += ["F3 not set",             "please modify mappings.vim"]
+let g:map_info += ["F4 not set",             "please modify mappings.vim"]
+let g:map_info += ["F5 not set",             "please modify mappings.vim"]
+let g:map_info += ["F6 not set",             "please modify mappings.vim"]
+let g:map_info += ["F7 not set",             "please modify mappings.vim"]
+let g:map_info += ["F8 not set",             "please modify mappings.vim"]
+let g:map_info += ["F9 not set",             "please modify mappings.vim"]
+let g:map_info += ["F10 not set",            "please modify mappings.vim"]
+let g:map_info += ["F11 not set",            "please modify mappings.vim"]
+let g:map_info += ["F12 not set",            "please modify mappings.vim"]
+" .. and so on (modify/add to your likings)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #1 (default)
+"
+call MMUpdate()
+if g:map_index == 1
+  noremap  <silent> <F1>  :execute ":echo 'you pressed F1 in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F2>  :NERDTreeToggle<CR>
+  noremap  <silent> <F3>  :execute ":echo 'F3  not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F4>  :execute ":echo 'F4  not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F5>  :tabp<CR>
+  noremap  <silent> <F6>  :tabn<CR>
+  noremap  <silent> <F7>  :execute ":echo 'F7  not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F8>  :execute ":echo 'F8  not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F9>  :set nowrap<CR>
+  noremap  <silent> <F10> :execute ":echo 'F10 not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F11> :execute ":echo 'F11 not set in ".g:map_name_1."'"<CR>
+  noremap  <silent> <F12> :execute ":echo 'F12 not set in ".g:map_name_1."'"<CR>
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #2
+"
+call MMUpdate()
+if g:map_index == 2
+  noremap  <silent> <F1> :execute "!echo you pressed F2 in ".g:map_name_2<CR>
+  noremap  <silent> <F2>  :execute ":!dialog --ascii-lines --infobox 'you pressed F2 in ".g:map_name_1."' 10 40"<CR>
+  noremap  <silent> <F3>  :execute ":echo 'F3  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F4>  :execute ":echo 'F4  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F5>  :execute ":echo 'F5  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F6>  :execute ":echo 'F6  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F7>  :execute ":echo 'F7  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F8>  :execute ":echo 'F8  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F9>  :execute ":echo 'F9  not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F10> :execute ":echo 'F10 not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F11> :execute ":echo 'F11 not set in ".g:map_name_2."'"<CR>
+  noremap  <silent> <F12> :execute ":echo 'F12 not set in ".g:map_name_2."'"<CR>
+endif
+" .. and so on (modify/add to your likings)

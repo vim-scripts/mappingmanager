@@ -1,0 +1,36 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mappingmanager: example mappings.vim (override)
+"
+" here you can see how you can override settings
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mapping menu
+"
+
+function! MapSet(set,index)
+  return ((a:set-1)*26)+((a:index-1)*2)+2
+endfunction
+
+let map_info[MapSet(1,5)] = "F5 Validate PHP"
+let map_info[MapSet(1,5)+1] = "PHP validation"
+
+let map_info[MapSet(1,6)] = "F6 svn commit"
+let map_info[MapSet(1,6)+1] = "SVN commit the root"
+
+let map_info[MapSet(1,7)] = "F7 previous tab"
+let map_info[MapSet(1,7)+1] = "Switch to previous tab"
+
+let map_info[MapSet(1,8)] = "F8 next tab"
+let map_info[MapSet(1,8)+1] = "Switch to next tab"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #1 (default)
+"
+if g:map_index == 1
+  noremap <silent> <F5> :execute '!php -l "'.bufname('%').'" 2>/dev/null'<CR>
+  noremap <silent> <F6> :execute '!svn commit -m "' . input('Message: ').'"'<CR>
+  noremap <silent> <F7> :tabp<CR>
+  noremap <silent> <F8> :tabn<CR>
+endif
+

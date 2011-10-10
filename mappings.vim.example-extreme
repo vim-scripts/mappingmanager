@@ -1,0 +1,275 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mappingmanager: example mappings.vim
+"
+" this is an example for our company's global vim, our employees extend/modify org
+" even override the mappings to their own likings.
+"
+" WARNING      this is just an example(!)
+" VIM RULE #1: everybody's workflow is personal. So never just copy other people's
+"              stuff and hope it will usefull, use it as inspiration to facilitate 
+"              your own workflow.
+" NOTE:        the curl stuff is a nice example how to automate cmdline stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mapping menu
+"
+let g:map_info  = []
+let g:map_info += ["mapping 1",              "this is the default mapping"]
+let g:map_info += ["F1 vimgrep",             "find-in-files using vim's grep + quickfixwindow"]
+let g:map_info += ["F2 NERDTree",            "toggles a filemanager"]
+let g:map_info += ["F3 PHPDoc",              "comments a phpfunction if cursor is located on it"]
+let g:map_info += ["F4 registers",           "show whats inside current registers"]
+let g:map_info += ["F5 previous tab",        "switch to previous tab"]
+let g:map_info += ["F6 next tab",            "switch to next tab"]
+let g:map_info += ["F7 php syntaxcheck",     "runs php syntaxcheck on current file"]
+let g:map_info += ["F8 next window",         "switches cursor to next window"]
+let g:map_info += ["F9 wordwrap",            "toggle wordwrap on/off"]
+let g:map_info += ["F10 paste",              "toggle paste mode on/off"]
+let g:map_info += ["F11 show macros",        "show snippetmacros of current filetype"]
+let g:map_info += ["F12 show snippets",      "show all snippets (use CTRL-SHIFT-V on keyword)"]
+let g:map_info += ["snippets",               "several utilities to speed up commenting"]
+let g:map_info += ["F1 if",                  ""] 
+let g:map_info += ["F2 while",               ""] 
+let g:map_info += ["F3 switch",              ""] 
+let g:map_info += ["F4 comment class",       "fires snippets/global/classheader"]
+let g:map_info += ["F5 comment ",            "fires snippets/global/var"]
+let g:map_info += ["F6 php function",        "fires snippets/global/function"]
+let g:map_info += ["F7 comment block",       "fires snippets/global/block"]
+let g:map_info += ["F8 comment line",        "fires snippets/global/line"]
+let g:map_info += ["F9 not set",             ""]
+let g:map_info += ["F10 not set",            ""]
+let g:map_info += ["F11 not set",            ""]
+let g:map_info += ["F12 not set",            ""]
+let g:map_info += ["subversion",             "svn utility functions"]
+let g:map_info += ["F1 svn stat",            "see all changes/updates"]
+let g:map_info += ["F2 svn commit .",        "commit files in current directory"]
+let g:map_info += ["F3 svn commit ?",        "commit files in prompted directory"]
+let g:map_info += ["F4 svn commit %",        "commit current file"]
+let g:map_info += ["F5 svn diff",            "diff current file with another"]
+let g:map_info += ["F6 svn add %",           "svn add current file"]
+let g:map_info += ["F7 not set",             ""]
+let g:map_info += ["F8 not set",             ""]
+let g:map_info += ["F9 not set",             ""]
+let g:map_info += ["F10 not set",            ""]
+let g:map_info += ["F11 not set",            ""]
+let g:map_info += ["F12 not set",            ""]
+let g:map_info += ["ascii",                  "several utilities to speed up ascii layout"]
+let g:map_info += ["F1 insert date",         "insert date (handy for code CHANGE-section)"]
+let g:map_info += ["F2 comment line",        "insert /**/ line, fires snippet"]
+let g:map_info += ["F3 comment block",       "insert /**/ block, fires snippet"]
+let g:map_info += ["F4 not set",             ""]
+let g:map_info += ["F5 not set",             ""]
+let g:map_info += ["F6 htmlize selection",   "converts selection into html"]
+let g:map_info += ["F7 note selection",      "wraps note around selection"]
+let g:map_info += ["F8 box  selection",      "wraps box around selection"]
+let g:map_info += ["F9 component selection", "wraps component around selection"]
+let g:map_info += ["F10 not set",            ""]
+let g:map_info += ["F11 not set",            ""]
+let g:map_info += ["F12 not set",            ""]
+let g:map_info += ["xdebug",                 "php xdebugger functionality"]
+let g:map_info += ["F1 not set",             ""]
+let g:map_info += ["F2 not set",             ""]
+let g:map_info += ["F3 not set",             ""]
+let g:map_info += ["F4 not set",             ""]
+let g:map_info += ["F5 start debug",         "add ?XDEBUG_SESSION_START to your url first"]
+let g:map_info += ["F6 not set",             ""]
+let g:map_info += ["F7 not set",             ""]
+let g:map_info += ["F8 not set",             ""]
+let g:map_info += ["F9 not set",             ""]
+let g:map_info += ["F10 breakpoint",         "toggle breakpoint on current line"]
+let g:map_info += ["F11 not set",            ""]
+let g:map_info += ["F12 not set",            ""]
+let g:map_info += ["curl",                   "handy interactive curl inside vim"]
+let g:map_info += ["F1 set url",             ""]
+let g:map_info += ["F2 set query",           ""]
+let g:map_info += ["F3 set method",          ""]
+let g:map_info += ["F4 run selection",       ""]
+let g:map_info += ["F5 run ",                "run the current settings"]
+let g:map_info += ["F6 optional args",       "add some curl specific args for the cmdline"]
+let g:map_info += ["F7 output type",         ""]
+let g:map_info += ["F8 not set",             ""]
+let g:map_info += ["F9 not set",             ""]
+let g:map_info += ["F10 view",               "shows the current curl generated cmdline"]
+let g:map_info += ["F11 not set",            ""]
+let g:map_info += ["F12 not set",            ""]
+" .. and so on (modify/add to your likings)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #1 (default)
+"
+if g:map_index == 1
+  noremap  <silent> <F1>  :call DoGrep()<CR>
+  noremap  <silent> <F2>  :NERDTreeToggle<CR>
+  noremap  <silent> <F3>  :call PhpDocRange()<CR>
+  vnoremap <silent> <F3>  :call PhpDocRange()<CR>
+  noremap  <silent> <F4>  :reg<CR>
+  noremap  <silent> <F5>  :tabp<CR>
+  noremap  <silent> <F6>  :tabn<CR>
+  noremap  <silent> <F7>  :!php -l %<CR>
+  noremap  <silent> <F8>  <C-w>w
+  noremap  <silent> <F9>  :set nowrap<CR>
+  noremap  <silent> <F10> :echo ""<CR>
+  set pastetoggle=<F10>
+  noremap  <silent> <F11> :call g:LoadSnippetMacros()<cr>
+  noremap  <silent> <F12> :!printf "to use snippets type a snippet (without .spt) and hit CTRL-SHIFT-v\n\n\available snippets:\n\n" && tree ~/.vim/snippets\|more<CR>
+  function! DoGrep()
+    let g:cmd = input('',"silent grep -Rn --exclude='*.svn*' --exclude='*Permission denied*' --exclude='*.swp*' --exclude='*.sql*' yourkeyword ".getcwd())
+    execute g:cmd
+    copen
+    redraw!
+  endfunction
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #2
+"
+if g:map_index == 2
+     " noremap <F1> :<Plug>Run_Snippet("class")<CR>
+     noremap <F1> :execute ":.!cat \"".g:snippet_directory."/global/if.spt\""<CR>
+     noremap <F2> :execute ":.!cat \"".g:snippet_directory."/global/while.spt\""<CR>
+     noremap <F3> :execute ":.!cat \"".g:snippet_directory."/global/switch.spt\""<CR>
+     noremap <F4> :execute ":.!cat \"".g:snippet_directory."/global/classheader.spt\""<CR>
+     noremap <F5> :execute ":.!cat \"".g:snippet_directory."/global/comment.spt\""<CR>
+     noremap <F6> :execute ":.!cat \"".g:snippet_directory."/php/function.spt\""<CR>
+     noremap <F7> :execute ":.!cat \"".g:snippet_directory."/global/block.spt\""<CR>
+     noremap <F8> :execute ":.!cat \"".g:snippet_directory."/global/line.spt\""<CR>
+     noremap <F10> :echo "not set!"<CR>
+     noremap <F11> :echo "not set!"<CR>
+     noremap <F12> :echo "not set!"<CR>
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #3
+"
+if g:map_index == 3
+     noremap <silent> <F1> :execute '!svn stat .'<CR>
+     noremap <silent> <F2> :execute '!svn commit -m "' . input('Message: ').'"'<CR>
+     noremap <silent> <F3> :execute '!svn commit "' . input('File/path: ').'" -m "' . input('Message: ').'"'<CR>
+     noremap <silent> <F4> :execute '!svn commit "' . bufname('%') . '" -m "' . input('Message: ').'"'<CR>
+     noremap <silent> <F5> :execute 'vert diffsplit ' . input("Enter file: ").<CR>
+     noremap <silent> <F6> :execute '!svn add "' . bufname('%') . '"'<CR>
+     noremap <F7> :echo "not set!"<CR>
+     noremap <F8> :echo "not set!"<CR>
+     noremap <F9> :echo "not set!"<CR>
+     noremap <F10> :echo "not set!"<CR>
+     noremap <F11> :echo "not set!"<CR>
+     noremap <F12> :echo "not set!"<CR>
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #4
+"
+if g:map_index == 4
+     inoremap <F1> :r !date<CR>
+     noremap <F2> :echo "not set"<cr>
+     noremap <F6> :TOhtml<CR>
+     nmap <F6> :TOhtml<CR>
+     vmap <F7> !boxes -d c<CR>
+     nmap <F7> !!boxes -d c<CR>
+     vmap <F8> !boxes -d stone<CR>
+     nmap <F8> !!boxes -d stone<CR>
+     vmap <F9> !boxes -d component<CR>
+     nmap <F9> !!boxes -d component<CR>
+     noremap <F10> :echo "not set!"<CR>
+     noremap <F11> :echo "not set!"<CR>
+     noremap <F12> :echo "not set!"<CR>
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #5
+"
+if g:map_index == 5
+  map <F1> :python debugger_resize()<cr>
+  map <F2> :python debugger_command('step_into')<cr>
+  map <F3> :python debugger_command('step_over')<cr>
+  map <F4> :python debugger_command('step_out')<cr>
+
+  map <Leader>dr :python debugger_resize()<cr>
+  map <Leader>di :python debugger_command('step_into')<cr>
+  map <Leader>do :python debugger_command('step_over')<cr>
+  map <Leader>dt :python debugger_command('step_out')<cr>
+
+  nnoremap ,e :python debugger_watch_input("eval")<cr>A
+
+  map <F5> :python debugger_run()<cr>
+  map <F6> :python debugger_quit()<cr>
+
+  map <F7> :python debugger_command('step_into')<cr>
+  map <F8> :python debugger_command('step_over')<cr>
+  map <F9> :python debugger_command('step_out')<cr>
+  
+  map <F10> :Bp<cr> 
+  
+  map <F11> :python debugger_context()<cr>
+  map <F12> :python debugger_property()<cr>
+  map <F11> :python debugger_watch_input("context_get")<cr>A<cr>
+  map <F12> :python debugger_watch_input("property_get", '<cword>')<cr>A<cr>
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPING #6
+"
+" http://www.mannetje.org/test.php -c cookie.txt -o blablabla.html
+" flop=true
+" flap=true
+"
+if g:map_index == 6
+  if !exists( "g:url" )
+    let g:url = "http://"
+  endif
+  if !exists( "g:coutput" )
+    let g:coutput = 1
+  endif
+  if !exists( "g:query" )
+    let g:query = "foo=flop&"
+  endif
+  if !exists( "g:method" )
+      let g:method = "POST"
+  endif
+  if !exists( "g:cargs" )
+      let g:cargs = "-s --cookie /tmp/vimcookie.curl --cookie-jar /tmp/vimcookies.curl "
+  endif
+  noremap <F1> :let g:url = input('Enter url: ',g:url)<CR>
+  noremap <F2> :let g:query = input('Enter query: ',g:query)<CR>
+  noremap <F3> :let g:method = input('Enter method (GET/POST): ', g:method )<CR>
+  vmap    <F4> "zy:call ExecuteCurl( g:method, 1, 0)<CR>
+  noremap <F5> :call ExecuteCurl( g:method, 0, 0)<CR>
+  noremap <F6> :let g:carg = input('Enter optional args: ', g:cargs )<CR>
+  noremap <F7> :let g:coutput = input('Output type (1=default file,2=vim,3=vim buffer): ', g:coutput )<CR>
+  noremap <F10> :call ExecuteCurl( g:method, 0, 1)<CR>
+endif
+" .. and so on (modify/add to your likings)
+
+function! ExecuteCurl( method, useselection, printcmd )
+  if a:useselection == 1
+    let lines = split( @z,"\n" )
+    let url   = lines[0]
+    let values = lines[1:]
+    let values_str = ""
+    for value in values 
+      let values_str .= " -F ".value
+    endfor
+    let cmd    = "curl " . url . " --request " . toupper(a:method) . " " . values_str 
+  else
+    let url   = g:url
+    let cmd    = "curl \"" . url . "?" . g:query . "\" --request " . toupper(a:method) . " " . g:cargs
+  endif
+  if g:coutput == 1
+    if cmd !~ "-o"
+      let cmd     .= " -o /var/www/curl.mannetje.org/web/" . $USER . ".html"
+    endif
+    let cmd = "silent !" . cmd
+  endif
+  if g:coutput == 2
+    let cmd = "!" . cmd
+  endif
+  if g:coutput == 3
+    let cmd = "silent !" . cmd
+  endif
+  if !a:printcmd
+    execute cmd
+  else
+    echo cmd 
+    return
+  endif
+  if g:coutput == 3
+    execute ":sp /var/www/curl.mannetje.org/web/" . $USER . ".html"
+  endif
+endfunction
+" .. and so on (modify/add to your likings)
+

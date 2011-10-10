@@ -1,0 +1,39 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mappingmanager: example mappings.vim (override)
+"
+" directory-related mappings for mappingmanager.vim plugin
+"
+" why: so you can put mapping files in project directories and have
+"      extra project-specific mappings for that project
+"
+" example:
+"   /myproject/mappings.vim
+"   /myproject/src/           <- sourcefiles
+"   /myproject/doc            <- documentation etc
+"   /myproject/dev            <- development/tmp workspace
+"
+" cd to 'myproject' and run vim (and the mappings.vim will be sourced automatically)
+
+let g:map_info += ['my preset name',           'general shortcuts']
+let g:map_info += ['F1 somedocument',          'shortcut to /doc/somedocument']
+let g:map_info += ['F1 somereference',         'shortcut to /doc/somereference']
+let g:map_info += ['F1 somedocument',          'shortcut to /doc/asciidoc_template.txt']
+let g:map_info += ['F2 not set',               '']
+let g:map_info += ['F3 not set',               '']
+let g:map_info += ['F4 not set',               '']
+let g:map_info += ['F5 bookmarks',             'bookmarks']
+let g:map_info += ['F6 not set',               '']
+let g:map_info += ['F7 not set',               '']
+let g:map_info += ['F8 not set',               '']
+let g:map_info += ['F9 not set',               '']
+let g:map_info += ['F10 not set',              '']
+let g:map_info += ['F11 not set',              '']
+let g:map_info += ['F12 not set',              '']
+ 
+call MMUpdate() " update g:maps
+if g:map_index == g:maps
+  noremap <F1> :tabn /home/username/www/doc/somedocument.txt<CR>
+  noremap <F2> :tabn /home/username/www/doc/somereference.txt<CR>
+  noremap <F3> :tabn /home/username/www/doc/asciidoc_template.txt<CR>
+  noremap <F5> :tabn /home/username/www/app/bookmarks.html<CR>
+endif
